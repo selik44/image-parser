@@ -8,5 +8,7 @@ php bin/console app:parse  -s site -d 3 -p 35
 
 # instal
 * composer instal
+* create database
+* make migrations
 * create .env from env.example
 
