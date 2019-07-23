@@ -18,9 +18,9 @@ abstract class AbstractCrawler {
      * @param string $url
      * @param int $depth
      * @param int $pageCount
-     * @param $allLinks
+     * @param array $allLinks
      * @return mixed
      */
-    abstract protected function loop(string $baseLink, string $url, int $depth, int $pageCount,  &$allLinks);
+    abstract protected function loop(string $baseLink, string $url, int $depth, int $pageCount, array &$allLinks);
 
 }

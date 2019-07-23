@@ -37,6 +37,7 @@ class ParseService extends AbstractCrawler
     {
         $allLinks = [];
         $data = $this->loop($link, $link, $depth, $pageCount, $allLinks);
+//        dd($data);
         $this->parseRepository->saveOrUpdateParsePages($data, $pageCount);
         return true;
     }
@@ -46,11 +47,10 @@ class ParseService extends AbstractCrawler
      * @param string $link
      * @param int $depth
      * @param int $pageCount
-     * @param $allLinks
-     * @param int $i
-     * @return \Exception|mixed|Exception
+     * @param array $allLinks
+     * @return array|mixed|string
      */
-    public function loop(string $baseLink, string $link, int $depth, int $pageCount, &$allLinks, $i = 0)
+    public function loop(string $baseLink, string $link, int $depth, int $pageCount, array &$allLinks)
     {
 
         try {
@@ -73,13 +73,14 @@ class ParseService extends AbstractCrawler
                             if (isset($allLinks[$item]['visited']) && $allLinks[$item]['visited'] === true) {
                                 continue;
                             } else {
-                                if (count(explode('/', (parse_url($item, PHP_URL_PATH)))) <= $depth) {
+                                if (count(explode('/', (parse_url($item, PHP_URL_PATH)))) <= $depth || $depth == 0) {
                                     $allLinks[$item] = [
                                         'link' => $item,
                                         'visited' => false,
                                         'count_images' => 0,
                                         'processing_speed' => 0
                                     ];
+                                    var_dump($allLinks);
                                 }
                             }
                         }

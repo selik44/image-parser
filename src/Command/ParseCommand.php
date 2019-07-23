@@ -57,6 +57,7 @@ class ParseCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $pageCount = !is_null($input->getOption('count_pages')) ? $input->getOption('count_pages') : 0;
-        $this->parseService->crawl($input->getOption('site'), $input->getOption('depth'), $pageCount);
+        $pageDepth = !is_null($input->getOption('depth')) ? $input->getOption('depth') : 0;
+        $this->parseService->crawl($input->getOption('site'), $pageDepth, $pageCount);
     }
 }

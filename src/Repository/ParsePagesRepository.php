@@ -37,8 +37,9 @@ class ParsePagesRepository extends ServiceEntityRepository
     public function saveOrUpdateParsePages(array $data, int $pageCount)
     {
         $i = 1;
+        var_dump('saveOrUpdateParsePages');
         foreach ($data as $item) {
-            if ($i <= $pageCount) {
+            if ($i <= $pageCount || $pageCount == 0) {
                 $i++;
                 $parse = $this->findOneByUrl($item['link']);
                 if (!is_null($parse)){
