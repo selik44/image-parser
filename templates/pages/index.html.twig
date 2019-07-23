@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <!-- Article List -->
+            <div class="col-sm-12 col-md-8">
+{#                {{ dump(pages) }}#}
+
+{#                    {{ dump(page.getUrl()) }}#}
+{#                    {{ dump(page.countImages()) }}#}
+{#                    {{ dump(page.processingSpeed()) }}#}
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">URL</th>
+                            <th scope="col">Count Images</th>
+                            <th scope="col">Processing Speed</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for page in pages %}
+                        <tr>
+                            <td>{{ page.getUrl() }}</td>
+                            <td> {{ page.countImages() }}</td>
+                            <td>{{ page.processingSpeed() }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
