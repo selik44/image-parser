@@ -6,6 +6,6 @@ php bin/console app:parse  -s site -d 3 -p 35
 *  -d page depth (optional)
 *  -p max page count (optional) 
 
-create .env from env.example
-composer install
+* composer install
+* create .env from env.example
 
