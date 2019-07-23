@@ -1,11 +1,10 @@
 # image-parser
-image parser
-parse comand:
+**parse comand**:
 php bin/console app:parse  -s site -d 3 -p 35
-parse params:
--s site
--d page depth
--p max page count
+# parse params:
+*  -s site (required)
+*  -d page depth (optional)
+*  -p max page count (optional) 
 
 create .env from env.example
 composer install
